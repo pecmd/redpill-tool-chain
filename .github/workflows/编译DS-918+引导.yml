@@ -1,4 +1,4 @@
-name: 编译[apollolake]平台引导(DS-918+)
+name: 编译[DS-918+]引导
 
 on: workflow_dispatch
 
