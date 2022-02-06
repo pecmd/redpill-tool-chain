@@ -3,13 +3,8 @@
         "pid": "0x0902",
         "vid": "0x1F75",
         "sn": "1840ODN081300",
-        "mac1": "7085c273651a",
-        "SataPortMap": "4",
-        "DiskIdxMap": "00"
+        "mac1": "7085c273651a"
     },
-    "synoinfo": {
-        "internalportcfg" : "0xffff",
-        "maxdisks" : "16"
-    },
+    "synoinfo": {},
     "ramdisk_copy": {}
 }
