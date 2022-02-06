@@ -1,6 +1,6 @@
 name: 编译 RedPill DSM loader
 
-on: push
+on: workflow_dispatch
 
 jobs:
   build:
