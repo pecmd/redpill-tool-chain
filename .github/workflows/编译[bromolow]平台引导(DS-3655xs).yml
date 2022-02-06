@@ -1,0 +1,35 @@
+name: 编译 RedPill DSM loader
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: 编译 "${{matrix.platform}} ${{matrix.version}}"
+    strategy:
+      fail-fast: false
+      matrix:
+       include:
+         - platform: bromolow
+           version: 6.2.4-25556
+         - platform: bromolow
+           version: 7.0.1-42218
+    steps:
+      - name: 准备结束
+        uses: actions/checkout@v2
+
+      - name: 准备构建环境
+        run: ./redpill_tool_chain.sh build ${{matrix.platform}}-${{matrix.version}}
+
+      - name: 编译引导镜像
+        run: ./redpill_tool_chain.sh auto ${{matrix.platform}}-${{matrix.version}}
+        
+      - name: 清理缓存
+        run: ./redpill_tool_chain.sh clean all
+        
+      - name: 上传引导镜像到 github actions
+        uses: actions/upload-artifact@v2
+        with:
+          name: dsm-${{matrix.platform}}-${{matrix.version}}
+          path: images/redpill-DS[39]*.img
+          if-no-files-found: error
