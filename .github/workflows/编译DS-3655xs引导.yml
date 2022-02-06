@@ -1,4 +1,4 @@
-name: 编译DS-3655xs引导
+name: 编译[DS-3655xs]引导
 
 on: workflow_dispatch
 
