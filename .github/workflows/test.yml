@@ -1,6 +1,6 @@
-name: 测试构建
+name: 编译Loader
 
-on: [push]
+on: workflow_dispatch
 
 jobs:
   build:
