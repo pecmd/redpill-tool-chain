@@ -14,12 +14,7 @@ jobs:
            version: 7.0.1-42218
     steps:
       - name: 准备结束
-        uses: actions/checkout@v2
-        
-      - name: 增加扩展驱动
-        run: ./redpill_tool_chain.sh add https://raw.githubusercontent.com/pocopico/rp-ext/master/vmxnet3/rpext-index.json
-             ./redpill_tool_chain.sh add https://raw.githubusercontent.com/pocopico/rp-ext/master/e1000/rpext-index.json
-             
+        uses: actions/checkout@v2          
 
       - name: 准备构建环境
         run: ./redpill_tool_chain.sh build ${{matrix.platform}}-${{matrix.version}}
