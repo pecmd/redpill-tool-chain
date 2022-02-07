@@ -17,6 +17,9 @@ jobs:
     steps:
       - name: 准备结束
         uses: actions/checkout@v2
+        
+      - name: 增加扩展驱动
+        run: ./redpill_tool_chain.sh add https://github.com/jumkey/redpill-load/raw/develop/redpill-boot-wait/rpext-index.json
 
       - name: 准备构建环境
         run: ./redpill_tool_chain.sh build ${{matrix.platform}}-${{matrix.version}}
